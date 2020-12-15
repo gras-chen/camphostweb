@@ -1,5 +1,5 @@
 <!doctype html> 
-<html lang="en">
+<html lang="zh">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,13 +12,70 @@
 
     <title>TenT形象官網</title>
     <style>
+      @font-face {
+      font-family: jf-openhuninn;
+      src: url(./font/jf-openhuninn-1.1.ttf);
+      }
+      body, html {
+        font-family: jf-openhuninn;
+        overflow-x: hidden;
+      }
+      html {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      *, *::before, *::after {
+        box-sizing: inherit;
+      }
+      .sticky{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+      }
       .linker a {
-        color: white;
+        color: gray;
         text-decoration: none;
       }
       .bg-cover {
         background-position: center center;
         background-size: cover;
+      }
+      .bg-blur{
+        filter: blur(2px);
+        -webkit-filter: blur(2px);
+        background-repeat: no-repeat;
+      }
+      .bg-text{
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        color: white;
+        font-weight: bold;
+        border: 2px solid #f1f1f1;
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+      }
+      .bg-text2{
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        color: white;
+        font-weight: bold;
+        border: 2px solid #f1f1f1;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
       }
       .pic-story {
         background-color: rgba(0, 0, 0, 0.5);
@@ -29,21 +86,24 @@
           background-color: rgba(255, 255, 255, 0.4);
         }
       }
+      .checked{
+        color: yellow;
+      }
     </style>
     
   </head>
   <body>
     <!-- ************** 1 ************** -->
-    <section class="bg-secondary">
-      <div class="container text-right text-white linker">
-        <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
-        <a href="#"><i class="fab fa-twitter-square fa-2x"></i></a>
+    <section class="bg-light">
+      <div class="container text-right linker">
+        <a href="#"><i class="fab fa-facebook-square"></i></a>
+        <a href="#"><i class="fab fa-twitter-square"></i></a>
       </div>
     </section>
     <!-- ************** 2 ************** -->
-    <section class="bg-dark">
+    <section class="bg-secondary" id="Header">
       <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
           <a class="navbar-brand" href="#"><i class="fas fa-campground"></i></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -60,9 +120,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#place"><i class="fas fa-faucet"></i> 營地設施</a>
-                  <a class="dropdown-item" href="#space"><i class="fas fa-cloud-sun"></i> A區-曙光雲海</a>
-                  <a class="dropdown-item" href="#space"><i class="fas fa-water"></i> B區-湖畔小森</a>
-                  <a class="dropdown-item" href="#booking">預定 Booking</a>
+                  <a class="dropdown-item" href="#"><i class="fas fa-cloud-sun"></i> A區-曙光雲海</a>
+                  <a class="dropdown-item" href="#"><i class="fas fa-water"></i> B區-湖畔小森</a>
                   <div class="dropdown-divider text-dark"></div>
                   <a class="dropdown-item" href="#traffic"><i class="fas fa-map-marked-alt"></i> 交通</a>
                   <a class="dropdown-item" href="#faq">問與答</a>
@@ -146,8 +205,6 @@
                   </div>
                 </div>
               </div>
-
-            
           </div>
         </nav>
       </div>
@@ -166,32 +223,27 @@
         <div class="carousel-inner">
           <div class="carousel-item active bg-cover" style="background-image: url(images/camp7.jpg); height: 360px;">
             <div class="carousel-caption d-none d-md-block pic-story">
-              <h5>First slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h5>打包行李準備出發</h5>
             </div>
           </div>
           <div class="carousel-item bg-cover" style="background-image: url(images/camp8.jpg); height: 360px;">
             <div class="carousel-caption d-none d-md-block pic-story">
-              <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h5>烤一口軟軟的棉花糖</h5>
             </div>
           </div>
           <div class="carousel-item bg-cover" style="background-image: url(images/camp9.jpg); height: 360px;">
             <div class="carousel-caption d-none d-md-block pic-story">
-              <h5>Third slide label</h5>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <h5>享受最舒適的蟲鳴鳥叫和陽光</h5>
             </div>
           </div>
           <div class="carousel-item bg-cover" style="background-image: url(images/camp5.jpg); height: 360px;">
             <div class="carousel-caption d-none d-md-block pic-story">
-              <h5>Third slide label</h5>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <h5>爐火邊的溫暖時光</h5>
             </div>
           </div>
           <div class="carousel-item bg-cover" style="background-image: url(images/camp6.jpg); height: 360px;">
             <div class="carousel-caption d-none d-md-block pic-story">
-              <h5>Third slide label</h5>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <h5>我們歡迎露營車造訪</h5>
             </div>
           </div>
         </div>
@@ -211,18 +263,18 @@
         <div class="row p-3">
           <div class="col-md-4 h-100 text-center">
             <i class="fas fa-car-side fa-5x mb-3 wow slideInLeft" data-wow-duration="3s"></i>
-            <h3>Lorem ipsum dolor sit.</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, temporibus nam nihil voluptate fugiat quidem.</p>
+            <h3>容易到達的絕佳位置</h3>
+            <p>營地位置鄰近公路，道路可以安心會車，特色圍欄和人行木棧道讓您遠離懸崖。 注意小動物出沒，敬請放慢速度，小心駕駛！</p>
           </div>
           <div class="col-md-4 h-100 text-center">
             <i class="fas fa-mountain fa-5x mb-3"></i>
-            <h3>Lorem, ipsum dolor sit.</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo iure laudantium quis doloribus hic, minima?</p>
+            <h3>老少咸宜的登山步道</h3>
+            <p>營地附近有多條登山步道，難易度從輕鬆級到挑戰級都有，每條步道各有特色，歡迎向營主索取觀察手冊，我們也提供導覽登記唷(人數達15人即成團)</p>
           </div>
           <div class="col-md-4 h-100 text-center">
             <i class="fas fa-map-signs fa-5x mb-3 "></i>
-            <h3>Lorem ipsum dolor sitt.</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit id minima fuga pariatur blanditiis, aliquam.</p>
+            <h3>喜好不同也能玩得盡興</h3>
+            <p>三五好友興趣不同？別擔心！營區有多項文化體驗活動可以參加，且皆有專業嚮導及教練帶領，不想安排行程就交給我們囉！</p>
           </div>
         </div>
       </div>
@@ -234,19 +286,20 @@
       </div>
       <div class="container">
         <div class="row justify-content-end p-3">
-          <div class="col-md-7 show-text">
-            <h2>Lorem ipsum dolor, sit amet.</h2>
-            <p>Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Eveniet aliquid doloribus illum iure animi ab inventore enim ea, adipisci dolore tempora, nam voluptate nihil laboriosam at porro voluptas eaque praesentium.</p>
-            <button class="btn btn-outline-warning">More...</button>
-
-            <div class="row p-3">
+          <div class="col-md-7 show-text pt-3">
+            <h2>美景，星空，螢火蟲</h2>
+            <p>露營區依山傍水，早晨有日出可以欣賞，夜晚的滿天星空讓人驚嘆，不同季節來訪都能讓你有不一樣的體驗。螢火蟲季一位難求，你還在等甚麼？</p>
+            <button class="btn btn-outline-warning">馬上去預定</button>
+            <div class="row p-3 mt-3">
               <div class="col-md-6">
-                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat itaque, porro doloribus iure, incidunt voluptate reprehenderit laborum iste sed. Minima.</p>
+                <h2>曙光雲海 - A區</h2>
+                <p>沐浴在晨間第一道陽光下，遠眺台灣高山。偶有雲海聚集，看陽光在雲朵上跳躍，沖一杯香濃咖啡來配。</p>
+                <p>特色：日出、雲海、晚霞、星空</p>
               </div>
               <div class="col-md-6">
-                <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id modi eum repellat consequuntur illum quas quae. Corrupti, vel, dolorem!</p>
+                <h2>湖畔小森 - B區</h2>
+                <p>環環相繞的高大杉木，踩著舖滿松葉的林間小徑。美麗的碧色湖水倒映樹影，四季都別有一番風味。</p>
+                <p>特色：杉木林、湖景、涼爽、賞月、划船(船費另計，須遵守相關規則)</p>
               </div>
             </div>
           </div>
@@ -256,36 +309,58 @@
     <!-- ************** 6 ************** -->
     <section class="bg-light" id="space">
       <div class="container">
-        <h1 class="p-5">Lorem ipsum consectetur adipisicing elit Quibusdam</h1>
+        <div class="row">
+          <div class="col-12 text-center">
+            <h1 class="p-5">深入我們的文化體驗</h1>            
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-6 d-flex">
-            <i class="fas fa-binoculars fa-6x m-3"></i>
+            <i class="fas fa-fish fa-6x m-2"></i>
             <div>
-              <h3>Lorem ipsum dolor sit amet.</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis itaque illo voluptatibus soluta harum sapiente corrupti, hic autem laboriosam temporibus similique distinctio expedita debitis amet, ex sit consectetur totam quam.</p>
+              <h3>湖畔釣魚趣</h3>
+              <ul>
+                <li>費用：350元/人(含簡易工具)</li>
+                <li>釣魚樂趣只有愛釣魚的人懂</li>
+                <li>有教練帶領，請遵守相關規則，勿私自垂釣</li>
+              </ul>
             </div>
           </div>
           <div class="col-md-6 d-flex">
-            <i class="fas fa-seedling fa-6x m-3"></i>
+            <i class="fas fa-bug fa-6x m-2"></i>
             <div>
-              <h3>Lorem ipsum dolor sit amet.</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis itaque illo voluptatibus soluta harum sapiente corrupti, hic autem laboriosam temporibus similique distinctio expedita debitis amet, ex sit consectetur totam quam.</p>
+              <h3>賞螢步道(4月-5月初)</h3>
+              <ul>
+                <li>費用：50元/人 (10歲以下免費，家長需陪同)</li>
+                <li>每天場次19:00 20:00 (視情況加開)</li>
+                <li>有嚮導解說，請遵守相關規則，勿自行脫隊</li>
+              </ul>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 d-flex">
-            <i class="fas fa-binoculars fa-6x m-3"></i>
+            <i class="fas fa-carrot fa-6x m-2"></i>
             <div>
-              <h3>Lorem ipsum dolor sit amet.</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis itaque illo voluptatibus soluta harum sapiente corrupti, hic autem laboriosam temporibus similique distinctio expedita debitis amet, ex sit consectetur totam quam.</p>
+              <h3>田樂小農夫 <small class="badge badge-warning">親子<i class="fab fa-hotjar text-danger"></i></small></h3>
+              <ul>
+                <li>費用：250元/人 (12歲以下免費，家長需陪同)</li>
+                <li>採摘的蔬果可以帶回營地烹煮享用</li>
+                <li>由營主爸媽帶領，請遵守相關規則，活動期間勿擅自離開菜園區</li>
+              </ul>
             </div>
           </div>
           <div class="col-md-6 d-flex">
-            <i class="fas fa-seedling fa-6x m-3"></i>
+            <i class="fas fa-skiing-nordic fa-6x m-2"></i>
             <div>
-              <h3>Lorem ipsum dolor sit amet.</h3>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis itaque illo voluptatibus soluta harum sapiente corrupti, hic autem laboriosam temporibus similique distinctio expedita debitis amet, ex sit consectetur totam quam.</p>
+              <h3>日出瑜珈/日出SUP</h3>
+              <ul>
+                <li>瑜珈費用：1000/人/2小時 (含基本保險及道具租金)</li>
+                <li>SUP費用：2000/人/2小時 (含基本保險及道具租金)</li>
+                <li>有專業教練帶領，請遵守相關規則</li>
+                <li>SUP團體預約不得超過10人/一場</li>
+                <li>SUP活動當時氣溫若低於15度(或有其餘狀況發生)，活動取消，全額退費</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -295,49 +370,64 @@
     <section class="bg-light" style="position: relative;">
       <div class="container">
         <div class="row">
-          <div class="col-md-7 show-text" style="z-index: 2;">
-            <dl class="row">
-              <dt class="col-sm-3">Description lists</dt>
-              <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
-
-              <dt class="col-sm-3">Euismod</dt>
-              <dd class="col-sm-9">
-                <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</p>
-                <p>Donec id elit non mi porta gravida at eget metus.</p>
-              </dd>
-
-              <dt class="col-sm-3">Malesuada porta</dt>
-              <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
-
-              <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
-              <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-
-              <dt class="col-sm-3">Nesting</dt>
-              <dd class="col-sm-9">
-                <dl class="row">
-                  <dt class="col-sm-4">Nested definition list</dt>
-                  <dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
-                </dl>
-              </dd>
-            </dl>
+          <div class="col-md-7">
+            <div class="row p-3">
+              <div style="height: 200px; background-image: url(./images/camp-title.jpg);" class="bg-cover bg-blur d-flex w-100"></div>
+              <div class="bg-text">
+                <h1>曙光雲海 - A區</h1>
+                <p>日出、雲海、晚霞、星空</p><button class="btn btn-success">GO <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+            <div class="row p-3">
+              <div style="height: 200px; background-image: url(./images/outdoor2.jpg);" class="bg-cover bg-blur d-flex w-100"></div>
+              <div class="bg-text2">
+                <h1>湖畔小森 - B區</h1>
+                <p>木林、湖景、涼爽、賞月、划船</p><button class="btn btn-success">GO <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row justify-content-end">
         <div class="col-md-5 bg-cover" 
-          style="position: absolute; background-image: url(images/clothes5.jpg); top: 0; bottom: 0;">
+          style="position: absolute; background-image: url(images/outdoor5.jpg); top: 0; bottom: 0;">
         </div>
       </div>
     </section>
     <!-- ************** 8 ************** -->
     <section class="bg-light" id="traffic">
       <div class="container">
-        <h1 class="p-5 text-center">Lorem ipsum consectetur adipisicing elit Quibusdam</h1>
+        <h1 class="p-5 text-center">看看地圖安排附近行程吧！</h1>
         <div class="row">
           <div class="col-md-6">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d116636.73237144208!2d120.99967222333983!3d23.99938271836312!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468c07fc9c77931%3A0x681e02db5981b7c5!2z6IO96auY5bGx!5e0!3m2!1szh-TW!2stw!4v1605685291056!5m2!1szh-TW!2stw" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 show-text" style="z-index: 2;">
+            <dl class="row">
+              <dt class="col-sm-3">地址</dt>
+              <dd class="col-sm-9">南投縣仁愛鄉XXX路XX巷XX號</dd>
+              <dt class="col-sm-3">路線指示</dt>
+              <dd class="col-sm-9">
+                <p>國道3號→國道6號→XX出口→155縣道→XXXX路</p>
+                <p>國道1號→XX閘道往南→國道3號→國道6號→XX出口→155縣道→XXXX路</p>
+              </dd>
+
+              <dt class="col-sm-3">附近加油站</dt>
+              <dd class="col-sm-9">中油XX店，台塑石油XX店</dd>
+
+              <dt class="col-sm-3 text-truncate">附近超市/商店</dt>
+              <dd class="col-sm-9">全家XX店、CC店，7-11SS店、XX店，全聯FF店</dd>
+
+              <dt class="col-sm-3">接駁車</dt>
+              <dd class="col-sm-9">
+                <dl class="row">
+                  <dt class="col-sm-4">平日$3000/車<br>假日$4500/車</dt>
+                  <dd class="col-sm-8">最多可乘坐7人，視行李多寡<br>站點：台中高鐵站/埔里鎮公所</dd>
+                </dl>
+              </dd>
+            </dl>
+          </div>
+          <!-- <div class="col-md-6">
             <div class="form-group">
               <label for="">Name</label>
               <input type="text" class="form-control">
@@ -370,46 +460,61 @@
               <button class="btn btn-secondary">取消</button>
               <button class="btn btn-warning">確認</button>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
     <!-- ************** 9 ************** -->
     <section class="bg-light" id="faq">
       <div class="container">
-        <h3 class="p-5 text-center">Lorem ipsum consectetur adipisicing elit Quibusdam</h3>
+        <h3 class="p-5 text-center">
+          現在馬上預定！！ <button class="btn btn-warning">營位預定 Book a place</button>
+        </h3>
       </div>
       <div class="row text-white">
         <div class="col-md-6 bg-cover" style="background-image: url(images/outdoor1.jpg);">
-          <div class="col-md-8 m-5">
-            <h6>Places</h6>
-            <h3>Lorem ipsum dolor consectetur adipisicing</h3>
-            <p>Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Impedit, eos labore itaque inventore maxime ratione corrupti nulla doloremque, accusamus accusantium alias temporibus facilis deserunt, id exercitationem. Quae laboriosam, consequuntur veniam. sit, amet consectetur adipisicing elit. Impedit, eos labore itaque inventore maxime ratione corrupti nulla doloremque, accusamus accusantium alias te</p>
-            <button class="btn btn-success">GO</button>
+          <div class="row m-5">
+            <h6>分享</h6>
+            <h3>看看全台露營夥伴怎麼說</h3>
+            <p>(擷取自XXX網評價)</p>
+            <div>
+              <h5>小寶媽
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+              </h5>
+              <p>周末帶兩個小朋友來露營，營地很大，跟其他帳篷之間距離很夠，小朋友夜晚哭鬧比較不會吵到其他人。我們有報名小農夫活動，讓小朋友體驗摘菜採水果，摘完還可以吃，很推薦!!營主還另外送我們一顆高山高麗菜，香甜好吃。</p>
+            </div>
+            <button class="btn btn-success">看更多評價</button>
           </div>
         </div>
         <div class="col-md-6 bg-cover" style="background-image: url(images/outdoor4.jpg);">
-          <div class="col-md-8 m-5">
-            <h6>Places</h6>
-            <h3>Lorem ipsum dolor consectetur adipisicing</h3>
-            <p>Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Impedit, eos labore itaque inventore maxime ratione corrupti nulla doloremque, accusamus accusantium alias temporibus facilis deserunt, id exercitationem. Quae laboriosam, consequuntur veniam. sit, amet consectetur adipisicing elit. Impedit, eos labore itaque inventore maxime ratione corrupti nulla doloremque, accusamus accusantium alias te</p>
-            <button class="btn btn-success">GO</button>
+          <div class="row m-5">
+            <h3>有問題想問嗎？</h3>
+            <p>Q 過年可以預訂嗎?</p>
+            <p>A 可以的!除了預定頁面上的公休日期，全年都可以預約，若遇天災(颱風、地震)也會通知，且全額退費。</p>
+            <button class="btn btn-success">看更多問答</button>
           </div>
         </div>
       </div>
     </section>
     <!-- ************** 10 ************** -->
-    <section class="bg-secondary" id="contact">
+    <section class="bg-light" id="contact">
       <div class="container linker">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Active</a>
+            <a class="nav-link active" href="#">XXXX@xmail.com</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">0911-111-111</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">04-222-2222</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">© GrasChen 2020</a>
           </li>
         </ul>
       </div>
@@ -422,6 +527,19 @@
     <script src="js/WOW.js"></script>
     <script>
       new WOW().init();
+
+      //   sticky header
+    window.onscroll = function(){StickyHeader()};
+
+    var header = document.getElementById("Header");
+    var sticky = header.offsetTop;
+    function StickyHeader(){
+      if(window.pageYOffset > sticky){
+          header.classList.add("sticky");
+      }else{
+          header.classList.remove("sticky");
+      }
+    }
     </script>
     
   </body>

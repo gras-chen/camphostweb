@@ -1,0 +1,478 @@
+<!doctype html> 
+<html lang="zh">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/animate.min.css"/>
+    <link rel="stylesheet" href="../fullcalendar-5.4.0/lib/main.min.css">
+
+    <title>TenT形象官網</title>
+    <style>
+      @font-face {
+      font-family: jf-openhuninn;
+      src: url(./font/jf-openhuninn-1.1.ttf);
+      }
+      body, html {
+        font-family: jf-openhuninn;
+        overflow-x: hidden;
+      }
+      html {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      *, *::before, *::after {
+        box-sizing: inherit;
+      }
+      .sticky{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+      }
+      .linker a {
+        color:black;
+        text-decoration: none;
+      }
+      .bg-cover {
+        background-position: center center;
+        background-size: cover;
+      }
+      .bg-blur{
+        filter: blur(2px);
+        -webkit-filter: blur(2px);
+        background-repeat: no-repeat;
+      }
+      .bg-text{
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        color: white;
+        font-weight: bold;
+        border: 2px solid #f1f1f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+      }
+      .bg-text2{
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        color: white;
+        font-weight: bold;
+        border: 2px solid #f1f1f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+      }
+      .pic-story {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      @media screen and (max-width: 768px) {
+        .show-text {
+          background-color: rgba(255, 255, 255, 0.4);
+        }
+      }
+      .checked{
+        color: yellow;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <!-- ************** 1 top icon************** -->
+    <section class="bg-light">
+      <div class="container text-right linker">
+        <a href="#"><i class="fab fa-facebook-square"></i></a>
+        <a href="#"><i class="fab fa-twitter-square"></i></a>
+      </div>
+    </section>
+    <!-- ************** 2 header************** -->
+    <section class="bg-info" id="Header">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+          <a class="navbar-brand" href="#"><i class="fas fa-campground"></i></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">關於我們 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  營地介紹
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#place"><i class="fas fa-faucet"></i> 營地設施</a>
+                  <a class="dropdown-item" href="#"><i class="fas fa-cloud-sun"></i> A區-曙光雲海</a>
+                  <a class="dropdown-item" href="#"><i class="fas fa-water"></i> B區-湖畔小森</a>
+                  <div class="dropdown-divider text-dark"></div>
+                  <a class="dropdown-item" href="#traffic"><i class="fas fa-map-marked-alt"></i> 交通</a>
+                  <a class="dropdown-item" href="#faq">問與答</a>
+                  <a class="dropdown-item" href="#contact">聯繫我們</a>
+                </div>
+              </li>
+            </ul>
+              <button class="btn btn-outline-warning mr-2" data-toggle="modal" data-target="#loginModal">登入</button>
+              <button class="btn btn-warning" data-toggle="modal" data-target="#regModal">註冊</button>
+
+              <!-- login modal -->
+              <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header bg-info">
+                      <h5 class="modal-title text-white" id="loginModalLabel">會員登入</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="">帳號</label>
+                        <input type="text" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="">密碼</label>
+                        <input type="password" class="form-control">
+                      </div>
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                      <button type="button" class="btn btn-info">登入</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- register modal -->
+              <div class="modal fade" id="regModal" tabindex="-1" role="dialog" aria-labelledby="regModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header bg-warning">
+                      <h5 class="modal-title" id="regModalLabel">會員註冊</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <h3>會員條款與須知</h3>
+                          <ol>
+                            <li>理念不然預期來到是怎麼招生幫我，矛盾一年暫無把你每一個發展我還刷新精華不是很威脅種種物理是怎，遼寧提醒青年治療創造並在山東放下那時</li>
+                            <li>環境品牌公共有時候這麼又有超過數量書，超級提供辦理這段你不靈魂心理目光學生外國為何生命天，右鍵第二章千萬很多</li>
+                            <li>我的不願更好計劃基本一會不然也能太多模型吉林服務器免費電影股，發表認真有一定電視台您是通道首次不起眾人大哥傷害沒有見過西。</li>
+                          </ol>
+
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="">帳號</label>
+                            <input type="text" class="form-control">
+                          </div>
+                          <div class="form-group">
+                            <label for="">密碼</label>
+                            <input type="password" class="form-control">
+                          </div>
+                          <div class="form-group">
+                            <label for="">確認密碼</label>
+                            <input type="password" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                      
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                      <button type="button" class="btn btn-warning">註冊</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+    <!-- ************** 3 圖片************** -->
+    <section class="bg-light">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active bg-cover" style="background-image: url(../images/camp7.jpg); height: 360px;">
+                <div class="carousel-caption d-none d-md-block pic-story">
+                    <h5>打包行李準備出發</h5>
+                </div>
+                </div>
+                <div class="carousel-item bg-cover" style="background-image: url(../images/camp8.jpg); height: 360px;">
+                <div class="carousel-caption d-none d-md-block pic-story">
+                    <h5>烤一口軟軟的棉花糖</h5>
+                </div>
+                </div>
+                <div class="carousel-item bg-cover" style="background-image: url(../images/camp9.jpg); height: 360px;">
+                <div class="carousel-caption d-none d-md-block pic-story">
+                    <h5>享受最舒適的蟲鳴鳥叫和陽光</h5>
+                </div>
+                </div>
+                <div class="carousel-item bg-cover" style="background-image: url(../images/camp5.jpg); height: 360px;">
+                <div class="carousel-caption d-none d-md-block pic-story">
+                    <h5>爐火邊的溫暖時光</h5>
+                </div>
+                </div>
+                <div class="carousel-item bg-cover" style="background-image: url(../images/camp6.jpg); height: 360px;">
+                <div class="carousel-caption d-none d-md-block pic-story">
+                    <h5>我們歡迎露營車造訪</h5>
+                </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            </div>
+      </section>
+    <!-- ************** 4 A區介紹************** -->
+    <section class="bg-light" style="position: relative;" id="introduce">
+        <div class="row">
+          <div class="col-md-4 bg-cover" style="position: absolute; background-image: url(../images/camp11.jpg); top: 0; bottom: 0;"></div>
+        </div>
+        <div class="container">
+          <div class="row justify-content-end p-3">
+            <div class="col-md-8 show-text pt-3">
+              <h2>曙光雲海 - A區</h2>
+              <p>沐浴在晨間第一道陽光下，遠眺台灣高山。偶有雲海聚集，看陽光在雲朵上跳躍，沖一杯香濃咖啡來配。眺望群山和山谷，日夜皆有風景可觀賞，一旁有環營區的步道，可通往湖邊或楓樹林步道。</p>
+              <a class="btn btn-outline-warning" href="#booking" role="button">馬上去預定</a>
+              <div class="row p-3 mt-3">
+                <div class="col-md-6">
+                  <h4>日出雲海</h4>
+                  <p>眺望群山和山谷，日夜皆有風景可觀賞，一旁有環營區的步道，可通往湖邊或楓樹林步道。</p>
+                </div>
+                <div class="col-md-6">
+                  <h4>設備</h4>
+                  <ul>
+                    <li>一個營位約4m*5m(多帳一起會更大)</li>
+                    <li>每營位附有洗手台、垃圾桶、廚餘桶、插座</li>
+                    <li>公共廁所3間，共用淋浴間5間</li>
+                </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!-- ************** 5 B區介紹************** -->
+    <section class="bg-light" style="position: relative;">
+        <div class="row">
+          <div class="col-md-4 bg-cover" style="position: absolute; background-image: url(../images/outdoor4.jpg); top: 0; bottom: 0;"></div>
+        </div>
+        <div class="container">
+          <div class="row justify-content-end p-3">
+            <div class="col-md-8 show-text pt-3">
+              <h2>湖畔小森 - B區</h2>
+              <p>環環相繞的高大杉木，踩著舖滿松葉的林間小徑。美麗的碧色湖水倒映樹影，四季都別有一番風味。在杉木樹下搭帳篷，早上有小山和樹蔭遮陽，夏天可以到湖邊戲水。夜晚滿天星斗和月亮映在湖上，非常浪漫迷人。</p>
+              <a class="btn btn-outline-warning" href="#booking" role="button">馬上去預定</a>
+              <div class="row p-3 mt-3">
+                <div class="col-md-6">
+                  <h4>杉木林與湖景</h4>
+                  <p>在杉木樹下搭帳篷，早上有小山和樹蔭遮陽，夏天可以到湖邊戲水。夜晚滿天星斗和月亮映在湖上，非常浪漫迷人。</p>
+                </div>
+                <div class="col-md-6">
+                  <h4>設備</h4>
+                  <ul>
+                      <li>一個營位約5m*5m(多帳一起會更大)</li>
+                      <li>每營位附有洗手台、垃圾桶、廚餘桶、插座</li>
+                      <li>公共廁所5間，共用淋浴間6間</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!-- ************** 6 ************** -->
+    <section class="bg-light" style="position: relative;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 p-3">
+                <div style="height: 200px; background-image: url(../images/camp-title.jpg);" class="bg-cover bg-blur d-flex w-100"></div>
+                <div class="bg-text">
+                  <h3>曙光雲海 - A區</h3>
+                  <p>日出、雲海、晚霞、星空</p>
+                </div>
+            </div>
+            <div class="col-md-6 p-3">
+                <div style="height: 200px; background-image: url(../images/outdoor2.jpg);" class="bg-cover bg-blur d-flex w-100"></div>
+                <div class="bg-text2">
+                  <h3>湖畔小森 - B區</h3>
+                  <p>木林、湖景、涼爽、賞月、划船</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+    <!-- ************** 7 booking************** -->
+    <section class="bg-light" id="booking">
+      <div class="container">
+        <h1 class="p-5 text-center">選一個最完美的日期</h1>
+        <div class="row">
+          <div class="col-md-6" id="calendar">
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">訂購人姓名</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="">連絡電話</label>
+              <input type="phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="">email</label>
+              <input type="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="">數量<small> $1000 per tent</small></label>
+              <input type="number" class="form-control">
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+              <label class="form-check-label" for="exampleRadios1">
+                A區-曙光雲海
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label" for="exampleRadios2">
+                B區-湖畔小森
+              </label>
+            </div>
+            <div class="text-right">
+              <button class="btn btn-secondary">取消</button>
+              <button class="btn btn-warning">確認</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ************** 8 ************** -->
+    <section class="bg-light" id="faq">
+      <div class="container">
+        <h3 class="p-5 text-center">
+          猶豫不決 <a class="btn btn-warning" href="#introduce" role="button">再看一次介紹</a>
+        </h3>
+      </div>
+      <div class="row text-white">
+        <div class="col-md-6 bg-cover" style="background-image: url(../images/outdoor1.jpg);">
+          <div class="row m-5">
+            <div>
+                <h3>看看全台露營夥伴怎麼說</h3>
+                <p>(擷取自XXX網評價)</p>
+            </div>
+            <div>
+              <h5>小寶媽
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+                <i class="fas fa-star checked"></i>
+              </h5>
+              <p>周末帶兩個小朋友來露營，營地很大，跟其他帳篷之間距離很夠，小朋友夜晚哭鬧比較不會吵到其他人。我們有報名小農夫活動，讓小朋友體驗摘菜採水果，摘完還可以吃，很推薦!!營主還另外送我們一顆高山高麗菜，香甜好吃。</p>
+            </div>
+            <button class="btn btn-success">看更多評價</button>
+          </div>
+        </div>
+        <div class="col-md-6 bg-cover" style="background-image: url(../images/outdoor4.jpg);">
+          <div class="row m-5">
+            <div>
+            <h3>有問題想問嗎？</h3>    
+            </div>
+            <div>
+            <p>Q 過年可以預訂嗎?</p>
+            <p>A 可以的!除了預定頁面上的公休日期，全年都可以預約，若遇天災(颱風、地震)也會通知，且全額退費。</p> 
+            </div>
+            <button class="btn btn-success">看更多問答</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ************** 9 footer************** -->
+    <section class="bg-secondary" id="contact">
+      <div class="container linker">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">XXXX@xmail.com</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">0911-111-111</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">04-222-2222</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">© GrasChen 2020</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/WOW.js"></script>
+    <script src='../fullcalendar-5.4.0/lib/main.min.js'></script>
+
+    <script>
+      new WOW().init();
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+
+    //   sticky header
+    window.onscroll = function(){StickyHeader()};
+
+    var header = document.getElementById("Header");
+    var sticky = header.offsetTop;
+    function StickyHeader(){
+        if(window.pageYOffset > sticky){
+            header.classList.add("sticky");
+        }else{
+            header.classList.remove("sticky");
+        }
+    }
+    </script>
+    
+  </body>
+</html>
